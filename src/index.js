@@ -4,17 +4,25 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
+import 'antd/dist/antd.less'
 import store from './redux/store'
 import { Provider } from 'react-redux'
+import { queryClient } from './services/api/react-query/queryClient'
+import { QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
    <React.StrictMode>
-      <Provider store={store}>
-         <BrowserRouter>
-            <App />
-         </BrowserRouter>
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+         <Provider store={store}>
+            <BrowserRouter>
+               <App />
+            </BrowserRouter>
+         </Provider>
+         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+      </QueryClientProvider>
    </React.StrictMode>,
 )
 
