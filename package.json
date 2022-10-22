@@ -35,5 +35,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.7.1"
   }
 }
