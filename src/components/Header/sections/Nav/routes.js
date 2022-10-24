@@ -2,6 +2,7 @@ import { showInfoMsg } from '../../../../functions/notifications'
 import { ProfileOutlined, FileTextOutlined } from '@ant-design/icons'
 
 const navRoutes = () => {
+   // creating separate navs for auth and non auth for more customization
    const authNavArray = [
       {
          route: '/',

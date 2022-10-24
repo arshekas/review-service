@@ -6,7 +6,11 @@ export const reviewWrapper = css`
    grid-template-columns: 10rem 1fr;
    justify-content: space-between;
    padding: var(--padding);
-   font-family: 'Andada Pro', serif;
+   font-family: var(--font-family);
+   @media only screen and (max-width: 51.25em) {
+      grid-template-columns: 1fr;
+      gap: var(--gap);
+   }
 `
 
 export const reviewLeft = css`
@@ -57,7 +61,7 @@ export const tags = css`
    padding: 4px 12px;
    cursor: pointer;
    color: var(--text);
-   margin-right: 6px;
+   margin: 0 6px 6px 0;
    transition: clip-path 500ms;
    &::after {
       content: '';

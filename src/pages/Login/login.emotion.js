@@ -4,13 +4,13 @@ export const loginFormWrapper = css`
    display: grid;
    align-items: center;
    justify-content: center;
-   min-height: 95vh;
+   min-height: 90vh;
    background-color: #354152;
-   margin-top: -8rem;
+   margin-top: -5rem;
 `
 
 export const loginFormTitle = css`
-   font-family: 'Andada Pro', serif;
+   font-family: var(--font-family);
    font-weight: 700;
 `
 
@@ -22,7 +22,7 @@ export const loginForm = css`
    justify-content: center;
    padding: var(--padding-xl) var(--padding);
    background-color: var(--background);
-   box-shadow: 0 0 500px #000;
+   box-shadow: 0 0 50px #000;
 
    img {
       width: 5rem;

@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import * as styles from './review.emotion'
 import User from '.././../assets/user.png'
 import { StarFilled, EditOutlined, DeleteOutlined } from '@ant-design/icons'
-import { Button, Modal } from 'antd'
+import { Button, Modal, Popconfirm } from 'antd'
 import { useSelector } from 'react-redux'
 import ReviewForm from '../../common/forms/ReviewForm'
 import { useDeleteReview } from '../../services/api/reviews/useDeleteReview'
 
 function Review({ review }) {
-   console.log('Review.js ~ 11 review', review.review.length)
    const [showMore, setShowMore] = useState(false)
    const [isEditModalOpen, setEditModalOpen] = useState(false)
    const { user } = useSelector((state) => state.user)
@@ -39,10 +38,16 @@ function Review({ review }) {
                {review.author.id === user.id && (
                   <div className={styles.reviewActions}>
                      <Button onClick={showEditModal} icon={<EditOutlined />} />
-                     <Button
-                        onClick={() => deleteReview(review.id)}
-                        icon={<DeleteOutlined />}
-                     />
+
+                     <Popconfirm
+                        placement="topLeft"
+                        title={'Are you sure you want to delete review?'}
+                        onConfirm={() => deleteReview(review.id)}
+                        okText="Yes"
+                        cancelText="No"
+                     >
+                        <Button icon={<DeleteOutlined />} />
+                     </Popconfirm>
                   </div>
                )}
             </div>

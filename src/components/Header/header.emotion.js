@@ -5,12 +5,17 @@ export const header = css`
    width: 100%;
    height: var(--heading-height);
    z-index: 1000;
+   border-bottom: 1px solid var(--background);
+   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)),
+      url(https://images.unsplash.com/photo-1514119412350-e174d90d280e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+         no-repeat center;
+   background-size: cover;
    &::before {
       content: '';
       display: block;
       position: absolute;
       left: 0;
-      bottom: 6em;
+      bottom: 6.5em;
       width: 100%;
       height: calc(var(--heading-height) + 10em);
       z-index: -1;
@@ -44,7 +49,7 @@ export const title = css`
    font-weight: 700;
    margin-top: var(--padding);
    text-align: center;
-   font-family: 'Andada Pro', serif;
+   font-family: var(--font-family);
    text-shadow: 0.022em 0.022em 0.022em #111;
    color: var(--background);
 `

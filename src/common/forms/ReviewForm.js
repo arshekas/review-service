@@ -6,10 +6,11 @@ import ReviewObject from '../../models/ReviewObject'
 import { reviewValidation } from '../../validations/reviewValidation'
 import { Select } from 'antd'
 import { getTags } from '../../utils/getTags'
-import { PlusCircleOutlined } from '@ant-design/icons'
+import { CheckOutlined } from '@ant-design/icons'
 import { useCreateReview } from '../../services/api/reviews/useCreateReview'
 import { useUpdateReview } from '../../services/api/reviews/useUpdateReview'
 const { Option } = Select
+
 function ReviewForm({ review }) {
    const { mutate: createReview } = useCreateReview()
    const { mutate: updateReview } = useUpdateReview(review?.id)
@@ -17,6 +18,7 @@ function ReviewForm({ review }) {
    const handleTagChange = (value, setFieldValue) => {
       setFieldValue('tags', value)
    }
+
    return (
       <div className={styles.reviewFormWrapper}>
          <div>
@@ -36,6 +38,7 @@ function ReviewForm({ review }) {
                      },
                   }
                   if (review) {
+                     // if review exist call update
                      updateReview(formData)
                   } else {
                      createReview(formData)
@@ -75,16 +78,11 @@ function ReviewForm({ review }) {
                               label="Rating"
                               placeholder="Add rating"
                            />
-                           <div
-                              style={{ display: 'grid', marginBottom: '1rem' }}
-                           >
+                           <div className={styles.reviewFormTags}>
                               <label>Tags</label>
                               <Select
                                  mode="multiple"
                                  allowClear
-                                 style={{
-                                    width: '25rem',
-                                 }}
                                  defaultValue={review?.tags}
                                  placeholder="Please select"
                                  onChange={(value) =>
@@ -103,7 +101,7 @@ function ReviewForm({ review }) {
                               type="primary"
                               htmlType="submit"
                               disabled={isSubmitting}
-                              icon={<PlusCircleOutlined />}
+                              icon={<CheckOutlined />}
                            >
                               {review ? 'Update' : 'Create'}
                            </Button>

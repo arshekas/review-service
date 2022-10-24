@@ -30,6 +30,7 @@ function LoginForm() {
                   const user = checkUserValid(data)
                   if (user) {
                      dispatch(setUser(user))
+                     // set token to local storage to use for api
                      setItem('token', user.token, 'localStorage')
                      navigate('/')
                      showSuccessMsg('You have logged in successfully!')
@@ -37,6 +38,7 @@ function LoginForm() {
                      dispatch(setUser(null))
                      removeItem('token', 'localStorage')
                      showErrorMsg('Please check you username or password!')
+                     showSuccessMsg('You have logged out successfully!')
                   }
                   setTimeout(() => {
                      setSubmitting(false)
@@ -59,7 +61,7 @@ function LoginForm() {
                            placeholder="Enter password"
                         />
                         <Button
-                           type="lightdark"
+                           type="primary"
                            htmlType="submit"
                            disabled={isSubmitting}
                         >

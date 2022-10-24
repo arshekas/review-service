@@ -58,6 +58,9 @@ export const fieldWrapper = ({ width }) => css`
   flex-direction: column;
   gap: 0.1rem;
   width: ${width ? width : '25rem'};
+  @media only screen and (max-width: 51.25em) {
+      width: 15rem;
+   }
   input {
     position: relative;
     display: inline-block;

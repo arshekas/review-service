@@ -8,6 +8,7 @@ const withAuth = (SpecificComponent) => {
       const { user } = useSelector((state) => state.user)
       const navigate = useNavigate()
       const { removeItem } = useStorage()
+      // redirect user if not logged in for reviews
       useEffect(() => {
          if (!user) {
             navigate('login')
