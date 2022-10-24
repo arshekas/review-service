@@ -1,0 +1,34 @@
+:root {
+   --unit-size: 1rem;
+
+   --padding-xs: calc(var(--unit-size) * 0.5);
+   --padding-s: calc(var(--unit-size) * 0.7);
+   --padding: calc(var(--unit-size) * 1);
+   --padding-l: calc(var(--unit-size) * 1.5);
+   --padding-xl: calc(var(--unit-size) * 2);
+
+   --heading-height: 15rem;
+
+   --border-radius-xs: calc(var(--unit-size) * 0.2);
+   --border-radius-s: calc(var(--unit-size) * 0.3);
+   --border-radius: calc(var(--unit-size) * 0.6);
+   --border-radius-l: calc(var(--unit-size) * 1.1);
+   --border-radius-xl: calc(var(--unit-size) * 1.6);
+   --border-radius-pill: calc(var(--unit-size) * 1000);
+
+   --gap-unit: calc(var(--unit-size) * 2);
+   --gap-xs: calc(var(--gap-unit) * 1 / 3);
+   --gap-s: calc(var(--gap-unit) * 2 / 3);
+   --gap: calc(var(--gap-unit) * 1);
+   --gap-l: calc(var(--gap-unit) * 5 / 3);
+   --gap-xl: calc(var(--gap-unit) * 7 / 3);
+
+   --font-size-xs: calc(var(--unit-size) * 0.6);
+   --font-size-s: calc(var(--unit-size) * 0.8);
+   --font-size: calc(var(--unit-size) * 1);
+   --font-size-l: calc(var(--unit-size) * 1.3);
+   --font-size-xl: calc(var(--unit-size) * 1.5);
+   --font-size-xxl: calc(var(--unit-size) * 1.8);
+   --font-size-xxxl: calc(var(--unit-size) * 2);
+   --font-size-xxxxl: calc(var(--unit-size) * 3);
+}
