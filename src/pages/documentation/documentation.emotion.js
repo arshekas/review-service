@@ -6,6 +6,7 @@ export const docWrapper = css`
    margin-top: var(--padding-xl);
    @media only screen and (max-width: 51.25em) {
       width: 90%;
+      padding-bottom: 5rem;
    }
    h2 {
       font-family: var(--font-family);

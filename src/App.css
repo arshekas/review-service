@@ -2,10 +2,10 @@
 }
 
 .app-wrapper {
-   padding: 15rem 0 5rem 0;
+   padding-top: 15rem;
 }
 @media only screen and (max-width: 51.25em) {
    .app-wrapper {
-      padding: 20rem 0 5rem 0;
+      padding-top: 20rem;
    }
 }
