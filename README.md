@@ -8,7 +8,7 @@ Node version used:
 
 ### `16.15.0`
 
-In the project directory, you need to npm packages:
+In the project directory, you need to install npm packages:
 
 ### `npm install`
 
