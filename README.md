@@ -4,7 +4,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+Node version used:
+
+### `16.15.0`
+
+In the project directory, you need to npm packages:
+
+### `npm install`
+
+After that run project:
 
 ### `npm start`
 
