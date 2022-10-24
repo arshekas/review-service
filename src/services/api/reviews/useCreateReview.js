@@ -24,7 +24,7 @@ export function useCreateReview() {
          queryClient.invalidateQueries([queryKeys.reviews])
          showSuccessMsg('Review Created Successfully!')
       },
-      onError: (err) => {
+      onError: () => {
          showErrorMsg('Error while creating a review!')
       },
    })

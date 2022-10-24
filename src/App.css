@@ -4,3 +4,8 @@
 .app-wrapper {
    padding: 15rem 0 5rem 0;
 }
+@media only screen and (max-width: 51.25em) {
+   .app-wrapper {
+      padding: 20rem 0 5rem 0;
+   }
+}

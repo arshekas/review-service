@@ -6,6 +6,6 @@ export const homeWrapper = css`
    margin: var(--padding) var(--padding-xl);
    gap: var(--gap);
    @media only screen and (max-width: 51.25em) {
-      margin-top: 8rem;
+      margin-top: 3rem;
    }
 `
