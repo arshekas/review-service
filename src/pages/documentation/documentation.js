@@ -12,13 +12,14 @@ function Documentation() {
             </li>
             <li>
                In order to view the reviews/homepage user needs to log in using
-               name and token as password, otherwise users cannot access reviews
-               page. If the user enters the wrong name/username or password will
-               not let you navigate to the home page
+               name and token as password
+               <b> for e.g. Billy Bob and his token</b>, otherwise users cannot
+               access reviews page. If the user enters the wrong name/username
+               or password will not let you navigate to the home page
             </li>
             <li>
                Once logged in, user can see a list of reviews along with the
-               author. Users can only update and delete their own reviews
+               author. <b>Users can only update and delete their own reviews</b>
             </li>
             <li>
                Users can use the logout button to logout which will redirect the
