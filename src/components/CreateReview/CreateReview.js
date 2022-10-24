@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Modal } from 'antd'
 import { PlusSquareOutlined } from '@ant-design/icons'
 import * as styles from './create.emotion'
+import ReviewForm from '../../common/forms/ReviewForm'
 
 function CreateReview() {
    const [isCreateModalOpen, setCreateModalOpen] = useState(false)
@@ -26,7 +27,9 @@ function CreateReview() {
             title="Add Review"
             open={isCreateModalOpen}
             onCancel={handleCancel}
-         ></Modal>
+         >
+            <ReviewForm />
+         </Modal>
       </div>
    )
 }
