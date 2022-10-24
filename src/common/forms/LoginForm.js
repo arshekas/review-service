@@ -10,10 +10,12 @@ import { setUser } from '../../redux/actions/user_actions'
 import { showErrorMsg, showSuccessMsg } from '../../functions/notifications'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import useStorage from '../../hooks/useStorage'
 
 function LoginForm() {
    const dispatch = useDispatch()
    const navigate = useNavigate()
+   const { setItem, removeItem } = useStorage()
    return (
       <div className={styles.loginFormWrapper}>
          <div className={styles.loginForm}>
@@ -26,13 +28,14 @@ function LoginForm() {
                validationSchema={loginValidation}
                onSubmit={(data, { setSubmitting }) => {
                   const user = checkUserValid(data)
-                  console.log('LoginForm.js ~ 29 user', user)
                   if (user) {
                      dispatch(setUser(user))
+                     setItem('token', user.token, 'localStorage')
                      navigate('/')
                      showSuccessMsg('You have logged in successfully!')
                   } else {
                      dispatch(setUser(null))
+                     removeItem('token', 'localStorage')
                      showErrorMsg('Please check you username or password!')
                   }
                   setTimeout(() => {

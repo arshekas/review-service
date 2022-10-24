@@ -7,15 +7,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setUser } from '../../../../redux/actions/user_actions'
 import { showSuccessMsg } from '../../../../functions/notifications'
 import { LoginOutlined, UserOutlined } from '@ant-design/icons'
+import useStorage from '../../../../hooks/useStorage'
 
 function Nav() {
    const { authNavArray, nonAuthNavArray } = navRoutes()
    const dispatch = useDispatch()
    const { user } = useSelector((state) => state.user)
    const navigate = useNavigate()
+   const { removeItem } = useStorage()
 
    const handleLogout = () => {
       dispatch(setUser(null))
+      removeItem('token', 'localStorage')
       showSuccessMsg('You have logout successfully!')
       navigate('login')
    }

@@ -2,32 +2,30 @@ import * as styles from '../../components/CreateReview/create.emotion'
 import { Formik, Form } from 'formik'
 import { Button, Space } from 'antd'
 import LabelField from '../../uikit/LabelField'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import ReviewObject from '../../models/ReviewObject'
 import { reviewValidation } from '../../validations/reviewValidation'
 import { Select } from 'antd'
 import { getTags } from '../../utils/getTags'
 import { PlusCircleOutlined } from '@ant-design/icons'
 import { useCreateReview } from '../../services/api/reviews/useCreateReview'
+import { useUpdateReview } from '../../services/api/reviews/useUpdateReview'
 const { Option } = Select
-function ReviewForm() {
-   const dispatch = useDispatch()
-   const navigate = useNavigate()
-   const { user } = useSelector((state) => state.user)
-   const { mutate: createReview } = useCreateReview(user.token)
+function ReviewForm({ review }) {
+   const { mutate: createReview } = useCreateReview()
+   const { mutate: updateReview } = useUpdateReview(review?.id)
+
    const handleTagChange = (value, setFieldValue) => {
       setFieldValue('tags', value)
    }
    return (
       <div className={styles.reviewFormWrapper}>
-         <div className={styles.reviewForm}>
+         <div>
             <Formik
                validateOnChange
                enableReinitialize
-               initialValues={ReviewObject()}
+               initialValues={ReviewObject(review)}
                validationSchema={reviewValidation}
-               onSubmit={(data, { setSubmitting }) => {
+               onSubmit={(data, { resetForm, setSubmitting }) => {
                   const formData = {
                      review: {
                         product: data.product,
@@ -37,14 +35,19 @@ function ReviewForm() {
                         tags: data.tags,
                      },
                   }
-                  createReview(formData)
+                  if (review) {
+                     updateReview(formData)
+                  } else {
+                     createReview(formData)
+                  }
                   setTimeout(() => {
                      setSubmitting(false)
+                     resetForm()
                   }, 200)
                }}
             >
                {(props) => {
-                  const { isSubmitting, setFieldValue, values } = props
+                  const { isSubmitting, setFieldValue } = props
                   return (
                      <Form>
                         <Space align="center" direction="vertical">
@@ -82,6 +85,7 @@ function ReviewForm() {
                                  style={{
                                     width: '25rem',
                                  }}
+                                 defaultValue={review?.tags}
                                  placeholder="Please select"
                                  onChange={(value) =>
                                     handleTagChange(value, setFieldValue)
@@ -96,12 +100,12 @@ function ReviewForm() {
                            </div>
                            <Button
                               loading={isSubmitting}
-                              type="lightdark"
+                              type="primary"
                               htmlType="submit"
                               disabled={isSubmitting}
                               icon={<PlusCircleOutlined />}
                            >
-                              Create
+                              {review ? 'Update' : 'Create'}
                            </Button>
                         </Space>
                      </Form>

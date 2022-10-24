@@ -5,3 +5,9 @@ export const reviewsWrapper = css`
    gap: var(--gap-s);
    flex-direction: column;
 `
+
+export const spinContainer = css`
+   height: 50vh;
+   display: grid;
+   align-items: center;
+`

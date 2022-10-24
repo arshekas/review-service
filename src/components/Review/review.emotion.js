@@ -19,6 +19,7 @@ export const reviewLeft = css`
 
 export const reviewRight = css`
    justify-self: flex-start;
+   width: 100%;
    h3 {
       font-weight: 700;
    }
@@ -56,6 +57,7 @@ export const tags = css`
    padding: 4px 12px;
    cursor: pointer;
    color: var(--text);
+   margin-right: 6px;
    transition: clip-path 500ms;
    &::after {
       content: '';

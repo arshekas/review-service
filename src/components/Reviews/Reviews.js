@@ -1,13 +1,16 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { useGetReviews } from '../../services/api/reviews/useGetReviews'
 import Review from '../Review/Review'
 import * as styles from './reviews.emotion'
+import { Spin } from 'antd'
 
 function Reviews() {
-   const { user } = useSelector((state) => state.user)
-   const { data: reviews } = useGetReviews([], {}, user?.token)
-   return (
+   const { data: reviews, isFetching: isReviewFetching } = useGetReviews()
+   return isReviewFetching ? (
+      <div className={styles.spinContainer}>
+         <Spin tip="loading..." size="large" />
+      </div>
+   ) : (
       <div className={styles.reviewsWrapper}>
          {reviews.map((review) => (
             <Review key={review.id} review={review} />

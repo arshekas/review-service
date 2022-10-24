@@ -6,6 +6,7 @@ import ReviewForm from '../../common/forms/ReviewForm'
 
 function CreateReview() {
    const [isCreateModalOpen, setCreateModalOpen] = useState(false)
+
    const showModal = () => {
       setCreateModalOpen(true)
    }

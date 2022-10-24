@@ -5,9 +5,6 @@ export const createButton = css`
 `
 
 export const reviewFormWrapper = css`
-   align-self: flex-end;
-`
-
-export const reviewForm = css`
-   align-self: flex-end;
+   display: grid;
+   justify-content: center;
 `

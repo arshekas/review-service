@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query'
+import useStorage from '../../../hooks/useStorage'
 import client from '../client'
 import { queryKeys } from '../react-query/queryKeys'
 
@@ -15,10 +16,14 @@ export const fetchReviews = async (token) => {
    const { data } = response
    return data
 }
-export function useGetReviews(initialData = [], options = {}, token) {
+export function useGetReviews(initialData = [], options = {}) {
+   const { getItem } = useStorage()
+   const token = getItem('token', 'localStorage')
+
    const query = useQuery([queryKeys.reviews], () => fetchReviews(token), {
       initialData,
       ...options,
+      enabled: !!token,
    })
    return {
       ...query,
