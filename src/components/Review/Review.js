@@ -6,6 +6,7 @@ import { Button, Modal, Popconfirm } from 'antd'
 import { useSelector } from 'react-redux'
 import ReviewForm from '../../common/forms/ReviewForm'
 import { useDeleteReview } from '../../services/api/reviews/useDeleteReview'
+import Moment from 'react-moment'
 
 function Review({ review }) {
    const [showMore, setShowMore] = useState(false)
@@ -69,6 +70,12 @@ function Review({ review }) {
                      {tag}
                   </div>
                ))}
+            <p>
+               <b>{`Posted: `}</b>
+               <span>
+                  <Moment fromNow date={review.createdAt} />
+               </span>
+            </p>
          </div>
          <Modal
             footer={null}

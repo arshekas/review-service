@@ -27,7 +27,7 @@ export const reviewRight = css`
    h3 {
       font-weight: 700;
    }
-   span {
+   > span {
       color: var(--primary);
       cursor: pointer;
       text-decoration: underline;
@@ -61,7 +61,7 @@ export const tags = css`
    padding: 4px 12px;
    cursor: pointer;
    color: var(--text);
-   margin: 0 6px 6px 0;
+   margin: 0 6px 12px 0;
    transition: clip-path 500ms;
    &::after {
       content: '';
