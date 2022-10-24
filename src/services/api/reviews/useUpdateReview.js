@@ -20,14 +20,12 @@ export function useUpdateReview(reviewId) {
    const token = getItem('token', 'localStorage')
    return useMutation((formData) => updateReview(formData, token, reviewId), {
       onSuccess: () => {
+         // refetching the updated reviews
+         queryClient.invalidateQueries([queryKeys.reviews])
          showSuccessMsg('Review Updated Successfully!')
       },
       onError: () => {
          showSuccessMsg('Error while updating a review!')
-      },
-      // Always refetch after error or success
-      onSettled: () => {
-         queryClient.invalidateQueries([queryKeys.reviews])
       },
    })
 }
