@@ -23,7 +23,9 @@ const navRoutes = () => {
          linkDisabled: true,
          icon: <ProfileOutlined />,
          onClick: () => {
-            showInfoMsg('Please login first!')
+            showInfoMsg(
+               'Please login first or use documentation to see how to login!',
+            )
          },
       },
       {
