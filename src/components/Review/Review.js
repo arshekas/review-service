@@ -35,7 +35,7 @@ function Review({ review }) {
                      {review.summary}
                   </p>
                </div>
-               {review.author.id === user.id && (
+               {review.author.id === user?.id && (
                   <div className={styles.reviewActions}>
                      <Button onClick={showEditModal} icon={<EditOutlined />} />
 
