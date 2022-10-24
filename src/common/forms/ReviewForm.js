@@ -67,7 +67,7 @@ function ReviewForm({ review }) {
                               placeholder="Add summary"
                            />
                            <LabelField
-                              type="textarea"
+                              as="textarea"
                               name="review"
                               label="Review"
                               placeholder="Add review"
