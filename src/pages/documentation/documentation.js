@@ -25,6 +25,13 @@ function Documentation() {
                Users can use the logout button to logout which will redirect the
                user back to the login page
             </li>
+            <li>
+               <b>
+                  All the tech libraries such as redux, react-query, formik,
+                  antd, styles, etc. are used so that app can easy to scale,
+                  manage and organize in future
+               </b>
+            </li>
          </ul>
       </div>
    )
